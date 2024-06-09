@@ -10,6 +10,6 @@ class BankService(private val bankDataSource: BankDatasource) {
 
     fun getBanksByAccountNumber(accountNumber: String): Bank = bankDataSource.retrieveBankByAccountNumber(accountNumber)
 
-
+    fun addNewBank(bank: Bank): Bank = bankDataSource.addNewBank(bank)
 
 }
