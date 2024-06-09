@@ -4,7 +4,7 @@ import com.app.bank.datasource.BankDatasource
 import com.app.bank.models.Bank
 import org.springframework.stereotype.Repository
 
-@Repository
+@Repository("mock")
 class MockBankDataSource: BankDatasource {
     val banks = mutableListOf(
             Bank("1234", 3.14, 1),
