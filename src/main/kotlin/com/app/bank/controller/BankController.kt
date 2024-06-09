@@ -31,4 +31,16 @@ class BankController(private val bankService: BankService) {
         val bank = bankService.addNewBank(bank)
         return ResponseEntity(bank, HttpStatus.CREATED)
     }
+
+    @PutMapping
+    fun updateBank(@RequestBody bank: Bank): ResponseEntity<Bank> {
+        val updatedBank = bankService.updateBank(bank)
+        return ResponseEntity(updatedBank, HttpStatus.OK)
+    }
+
+    @DeleteMapping("/{accountNumber}")
+    fun deleteBank(@PathVariable accountNumber: String): ResponseEntity<String> {
+        bankService.deleteBank(accountNumber)
+        return ResponseEntity("Bank with $accountNumber deleted successfully", HttpStatus.OK)
+    }
 }
